@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+          background-image: url('images/SunsetBackground.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: 100% 100%;
+          /* background-color: white; */
+             }
+        </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="catalog.css">
+    <title>Library Catalog</title>
+</head>
+<body>
+
+    <header>
+        <h1>Library Catalog</h1>
+        <nav>
+            <ul>
+                <li><a href="kheri.html">Dashboard</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>PHYSICS BOOKS</h2>
+        <div class="content-container">
+            <div class="box1">
+                <img src="images/physics.jpeg" alt="Image 1">
+                <h3>PHYSICS</h3>
+                <p>Author:SERWAY JEWETT</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box2">
+                <img src="images/modern physics.jpeg" alt="Image 2">
+                <h3>MODERN PHYSICS</h3>
+                <p>Author:ANDREW REX</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box3">
+                <img src="images/PHYSICS 2.jpeg" alt="Image 3">
+                <h3>PHYSICS</h3>
+                <p>Author:JERAL WALKER</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+            </div>
+            <div class="box4">
+                <img src="images/physics.jpeg" alt="Image 4">
+                <h3>PHYSICS</h3>
+                <p>Author:SERWAY JEWETT</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box5">
+                <img src="images/modern physics.jpeg" alt="Image 5">
+                <h3>MODERN PHYSICS</h3>
+                <p>Author:ANDREW REX</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+        </div>
+        <h2>ENGINEERING BOOKS</h2>
+        <div class="content-containers">
+            <div class="box6">
+                <img src="images/mechanical enginering.jpeg" alt="Image 6">
+                <h3>MECHANICAL ENGINEERING</h3>
+                <p>Author:JONATHAN WICKERT</p>
+                <p>Category: Engineering</p>
+                <!-- Add more details as needed -->
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box7">
+                <img src="images/engineering materials.jpeg" alt="Image 7">
+                <h3>ENGINEERING MATERIALS</h3>
+                <p>Author:HENERY TINDELL</p>
+                <p>Category: ENGINEERING</p>
+                <!-- Add more details as needed -->
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box8">
+                <img src="images/engineering mechanics.jpg" alt="Image 8">
+                <h3>ENGINEERING MECHANICS</h3>
+                <p>Author:DR.D.S KUMAR</p>
+                <p>Category: ENGINEERING</p>
+                <!-- Add more details as needed -->
+                <button>Borrow</button>
+            </div>
+            <div class="box9">
+                <img src="images/physics.jpeg" alt="Image 9">
+                <h3>PHYSICS</h3>
+                <p>Author:SERWAY JEWETT</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box10">
+                <img src="images/modern physics.jpeg" alt="Image 10">
+                <h3>MODERN PHYSICS</h3>
+                <p>Author:ANDREW REX</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+        </div>
+        <h2>MATHEMATICS BOOKS</h2>
+        <div class="content-containerss">
+            <div class="box11">
+                <img src="images/engineering maths.jpeg" alt="Image 11">
+                <h3>ENGINEERING MATHEMATICS</h3>
+                <p>Author:DONOVAN CRAWFORD</p>
+                <p>Category: MATHEMATICS</p>
+                <!-- Add more details as needed -->
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box12">
+                <img src="images/mathematics for engineers.jpeg" alt="Image 12">
+                <h3>ENGINEERING MATHEMATICS</h3>
+                <p>Author:DONOVAN CRAWFORD</p>
+                <p>Category: MATHEMATICS</p>
+                <!-- Add more details as needed -->
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box13">
+                <img src="images/mathematics jee.jpeg" alt="Image 13">
+                <h3>MATHEMATICS FOR JEE</h3>
+                <p>Author:VIKAS GUPTA</p>
+                <p>Category: MATHEMATICS</p>
+                <!-- Add more details as needed -->
+                <button>Borrow</button>
+            </div>
+            <div class="box14">
+                <img src="images/physics.jpeg" alt="Image 14">
+                <h3>PHYSICS</h3>
+                <p>Author:SERWAY JEWETT</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+            <div class="box15">
+                <img src="images/modern physics.jpeg" alt="Image 15">
+                <h3>MODERN PHYSICS</h3>
+                <p>Author:ANDREW REX</p>
+                <p>Category: PHYSICS</p>
+                <button>Borrow</button>
+                
+            </div>
+        </div>            
+        
+        <button id="activateButton" onclick="activateButtons()">Activate HTML Buttons</button>
+
+<button class="htmlButton" onclick="buttonClicked(1)">Button 1</button>
+<button class="htmlButton" onclick="buttonClicked(2)">Button 2</button>
+<button class="htmlButton" onclick="buttonClicked(3)">Button 3</button>
+
+<script>
+  function activateButtons() {
+    // Get all HTML buttons with the class 'htmlButton'
+    var buttons = document.querySelectorAll('.htmlButton');
+
+    // Iterate through the buttons and enable them
+    buttons.forEach(function(button) {
+      button.disabled = false; // You can also manipulate other attributes or styles here
+    });
+  }
+
+  function buttonClicked(buttonNumber) {
+    alert("Button " + buttonNumber + " clicked!");
+    // You can add more JavaScript code here to perform specific actions
+  }
+</script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Library Website</p>
+    </footer>
+
+</body>
+</html>
