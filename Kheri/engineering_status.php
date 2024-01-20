@@ -1,4 +1,5 @@
 <?php
+ require_once('test.php');
 // Assuming you have a database connection established
 $servername = "localhost";
 $username = "root";
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If the current status is "Borrow," update it to "Booked"
     if ($currentStatus === 'Borrow') {
-        $updateQuery = "UPDATE kheri_db SET physics_status = 'Booked' WHERE physics_books = '$bookId'";
+        $updateQuery = "UPDATE kheri_db SET engineering_status = 'Booked' WHERE engineering_books = '$bookId'";
         if ($conn->query($updateQuery) === TRUE) {
             echo "Status updated successfully";
         } else {

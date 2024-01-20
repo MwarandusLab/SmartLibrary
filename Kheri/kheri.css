@@ -110,7 +110,7 @@ footer {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 .box1 p{
     text-align: center;
@@ -146,7 +146,12 @@ footer {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    margin-bottom: 39px;
+    margin-bottom: 10px;
+}
+.box3 p{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .box4 {
     width: 16%;
@@ -203,12 +208,12 @@ footer {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    margin-bottom: 42px;
+    margin-bottom: 0px;
 }
 .box6 p{
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 .box7 {
     width: 16%;
@@ -239,7 +244,7 @@ footer {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
-    margin-bottom: 39px;
+    margin-bottom: 5px;
 }
 .box9 {
     width: 16%;
@@ -365,6 +370,11 @@ h2{
     margin-bottom: 30px;
     font-weight: bold;
 
+}
+h3{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 .User{
     text-align: left;
