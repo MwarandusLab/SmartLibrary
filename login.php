@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Determine the redirect based on the email
         switch ($email) {
             case 'kherikisia@mylife.mku.ac.ke':
-                header("Location: Kheri/kheri.html");
+                header("Location: Kheri/kheri.php");
                 break;
             case 'linahalmasi@mylife.mku.ac.ke':
                 header("Location: Linah/linah.html");

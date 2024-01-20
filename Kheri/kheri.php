@@ -3,12 +3,8 @@
 <head>
     <style>
         body {
-          /* background-image: url('images/SunsetBackground.jpg');
-          background-repeat: no-repeat;
-          background-attachment: fixed;
-          background-size: 100% 100%; */
           background-color: white;
-             }
+        }
         </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +12,47 @@
     <title>Dashboard</title>
 </head>
 <body>
+    <?php
+    // Assuming you have a database connection established
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "mku_library";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    } else {
+        echo "Connected successfully";
+    }
+
+    function getBookStatus($conn, $bookId) {
+        $query = "SELECT physics_status FROM kheri_db WHERE physics_books = '$bookId'";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                return $row["physics_status"];
+            }
+        }
+        // Return a default status if not found
+        return "UNKNOWN";
+    }
+    function getBookStatus_2($conn, $bookId) {
+        $query = "SELECT engineering_status FROM kheri_db WHERE engineering_books = '$bookId'";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                return $row["engineering_status"];
+            }
+        }
+        // Return a default status if not found
+        return "UNKNOWN";
+    }
+
+?>
 
     <header>
         <h1>Library Catalog</h1>
@@ -38,7 +75,9 @@
                 <h3>PHYSICS</h3>
                 <p>Author:SERWAY JEWETT</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_1" data-book-id="Physics_1" onclick="buttonClicked('Physics_1')">
+                <?php echo getBookStatus($conn, 'Phyisics_1'); ?>
+            </button>
                 
             </div>
             <div class="box2">
@@ -46,7 +85,9 @@
                 <h3>MODERN PHYSICS</h3>
                 <p>Author:ANDREW REX</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_1" data-book-id="Phyisics_2" onclick="buttonClicked('Phyisics_2')">
+                <?php echo getBookStatus($conn, 'Phyisics_2'); ?>
+            </button>
                 
             </div>
             <div class="box3">
@@ -54,14 +95,18 @@
                 <h3>PHYSICS</h3>
                 <p>Author:JERAL WALKER</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_1" data-book-id="Phyisics_3" onclick="buttonClicked('Phyisics_3')">
+                <?php echo getBookStatus($conn, 'Phyisics_3'); ?>
+            </button>
             </div>
             <div class="box4">
                 <img src="images/physics.jpeg" alt="Image 4">
                 <h3>PHYSICS</h3>
                 <p>Author:SERWAY JEWETT</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_1" data-book-id="Phyisics_4" onclick="buttonClicked('Phyisics_4')">
+                <?php echo getBookStatus($conn, 'Phyisics_4'); ?>
+            </button>
                 
             </div>
             <div class="box5">
@@ -69,7 +114,9 @@
                 <h3>MODERN PHYSICS</h3>
                 <p>Author:ANDREW REX</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_1" data-book-id="Phyisics_5" onclick="buttonClicked('Phyisics_5')">
+                <?php echo getBookStatus($conn, 'Phyisics_5'); ?>
+            </button>
                 
             </div>
         </div>
@@ -80,8 +127,9 @@
                 <h3>MECHANICAL ENGINEERING</h3>
                 <p>Author:JONATHAN WICKERT</p>
                 <p>Category: Engineering</p>
-                <!-- Add more details as needed -->
-                <button>Borrow</button>
+                <button class="htmlButton_1" data-book-id="Engineering_1" onclick="buttonClicked('Engineering_1')">
+                <?php echo getBookStatus_2($conn, 'Engineering_1'); ?>
+            </button>
                 
             </div>
             <div class="box7">
@@ -89,8 +137,7 @@
                 <h3>ENGINEERING MATERIALS</h3>
                 <p>Author:HENERY TINDELL</p>
                 <p>Category: ENGINEERING</p>
-                <!-- Add more details as needed -->
-                <button>Borrow</button>
+                <button  class="htmlButton_7" data-book-id="7" onclick="buttonClicked(7)">Borrow</button>
                 
             </div>
             <div class="box8">
@@ -98,15 +145,14 @@
                 <h3>ENGINEERING MECHANICS</h3>
                 <p>Author:DR.D.S KUMAR</p>
                 <p>Category: ENGINEERING</p>
-                <!-- Add more details as needed -->
-                <button>Borrow</button>
+                <button class="htmlButton_8" data-book-id="8" onclick="buttonClicked(8)">Borrow</button>
             </div>
             <div class="box9">
                 <img src="images/physics.jpeg" alt="Image 9">
                 <h3>PHYSICS</h3>
                 <p>Author:SERWAY JEWETT</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_9" data-book-id="9" onclick="buttonClicked(9)">Borrow</button>
                 
             </div>
             <div class="box10">
@@ -114,7 +160,7 @@
                 <h3>MODERN PHYSICS</h3>
                 <p>Author:ANDREW REX</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_10" data-book-id="10" onclick="buttonClicked(10)">Borrow</button>
                 
             </div>
         </div>
@@ -125,8 +171,7 @@
                 <h3>ENGINEERING MATHEMATICS</h3>
                 <p>Author:DONOVAN CRAWFORD</p>
                 <p>Category: MATHEMATICS</p>
-                <!-- Add more details as needed -->
-                <button>Borrow</button>
+                <button class="htmlButton_11" data-book-id="11" onclick="buttonClicked(11)">Borrow</button>
                 
             </div>
             <div class="box12">
@@ -134,8 +179,7 @@
                 <h3>ENGINEERING MATHEMATICS</h3>
                 <p>Author:DONOVAN CRAWFORD</p>
                 <p>Category: MATHEMATICS</p>
-                <!-- Add more details as needed -->
-                <button>Borrow</button>
+                <button class="htmlButton_12" data-book-id="12" onclick="buttonClicked(12)">Borrow</button>
                 
             </div>
             <div class="box13">
@@ -143,15 +187,14 @@
                 <h3>MATHEMATICS FOR JEE</h3>
                 <p>Author:VIKAS GUPTA</p>
                 <p>Category: MATHEMATICS</p>
-                <!-- Add more details as needed -->
-                <button>Borrow</button>
+                <button class="htmlButton_13" data-book-id="13" onclick="buttonClicked(13)">Borrow</button>
             </div>
             <div class="box14">
                 <img src="images/physics.jpeg" alt="Image 14">
                 <h3>PHYSICS</h3>
                 <p>Author:SERWAY JEWETT</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_14" data-book-id="14" onclick="buttonClicked(14)">Borrow</button>
                 
             </div>
             <div class="box15">
@@ -159,38 +202,51 @@
                 <h3>MODERN PHYSICS</h3>
                 <p>Author:ANDREW REX</p>
                 <p>Category: PHYSICS</p>
-                <button>Borrow</button>
+                <button class="htmlButton_15" data-book-id="15" onclick="buttonClicked(15)">Borrow</button>
                 
             </div>
         </div>            
-        
-        <button id="activateButton" onclick="activateButtons()">Activate HTML Buttons</button>
-
-<button class="htmlButton" onclick="buttonClicked(1)">Button 1</button>
-<button class="htmlButton" onclick="buttonClicked(2)">Button 2</button>
-<button class="htmlButton" onclick="buttonClicked(3)">Button 3</button>
-
-<script>
-  function activateButtons() {
-    // Get all HTML buttons with the class 'htmlButton'
-    var buttons = document.querySelectorAll('.htmlButton');
-
-    // Iterate through the buttons and enable them
-    buttons.forEach(function(button) {
-      button.disabled = false; // You can also manipulate other attributes or styles here
-    });
-  }
-
-  function buttonClicked(buttonNumber) {
-    alert("Button " + buttonNumber + " clicked!");
-    // You can add more JavaScript code here to perform specific actions
-  }
-</script>
     </main>
 
     <footer>
         <p>&copy; 2024 Library Website</p>
     </footer>
+    <script>
+        function buttonClicked(bookId, buttonId) {
+            var button = document.getElementById(buttonId);
+            var buttonText = button.innerText.trim();
+
+            if (buttonText === "Borrow") {
+                // Update the button text
+                button.innerText = "Booked";
+
+                // Send an AJAX request to update the database
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "update_status.php", true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                // Prepare the data to be sent
+                var data = "bookId=" + encodeURIComponent(bookId) + "&status=Booked";
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // Handle the response from the server if needed
+                        console.log(xhr.responseText);
+                    }
+                };
+
+                // Send the request
+                xhr.send(data);
+            } else if (buttonText === "Booked") {
+                // Do nothing when the status is already "Booked"
+            }
+        }
+    </script>
+
+    <?php
+        $conn->close();
+    ?>
+
 
 </body>
 </html>
