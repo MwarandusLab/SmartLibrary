@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: Kheri/kheri.php");
                 break;
             case 'linahalmasi@mylife.mku.ac.ke':
-                header("Location: Linah/linah.html");
+                header("Location: Linah/linah.php");
                 break;
             case 'derrickkamau@mylife.mku.ac.ke':
-                header("Location: Derrick/derrick.html");
+                header("Location: Derrick/derrick.php");
                 break;
         }
         exit();

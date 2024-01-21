@@ -1,5 +1,5 @@
 <?php
- require_once('test.php');
+require_once('kheri.php');
 // Assuming you have a database connection established
 $servername = "localhost";
 $username = "root";
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bookId = $_POST["bookId"];
 
     // Check the current status
-    $currentStatus = getBookStatusFromTable($conn, $bookId, 'kheri_db');
+    $currentStatus = getBookStatusFromTable_2($conn, $bookId, 'kheri_db');
 
     // If the current status is "Borrow," update it to "Booked"
     if ($currentStatus === 'Borrow') {

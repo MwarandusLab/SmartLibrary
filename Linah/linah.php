@@ -8,7 +8,7 @@
         </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="kheri.css">
+    <link rel="stylesheet" href="linah.css">
     <title>Dashboard</title>
 </head>
 <body>
@@ -23,8 +23,6 @@
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-    }else{
-        echo "Connected successfully";
     }
     function getBookStatus($conn, $bookId) {
         $status_kheri = getBookStatusFromTable($conn, $bookId, 'kheri_db');
@@ -32,15 +30,15 @@
         $status_derrick = getBookStatusFromTable($conn, $bookId, 'derrick_db');
     
         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -52,19 +50,19 @@
         $status_linah = getBookStatusFromTable($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
-            return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
-            // If any table has the status "Booked," return "Booked"
-            return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
-            // If any table has the status "Booked," return "Booked"
-            return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
-            // If any table has the status "Booked," return "Booked"
-            return 'Booked';
-        }
+       // Check if all statuses are "Borrow"
+       if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
+        return 'Borrow';
+    } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
+        // If any table has the status "Booked," return "Booked"
+        return 'Not Available';
+    }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
+        // If any table has the status "Booked," return "Booked"
+        return 'Not Available';
+    }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
+        // If any table has the status "Booked," return "Booked"
+        return 'Booked';
+    }
     }
     function getBookStatus_3($conn, $bookId) {
         // Similar changes for the second table
@@ -72,16 +70,16 @@
         $status_linah = getBookStatusFromTable($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -92,16 +90,16 @@
         $status_linah = getBookStatusFromTable($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -112,16 +110,16 @@
         $status_linah = getBookStatusFromTable($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -132,16 +130,16 @@
         $status_linah = getBookStatusFromTable_2($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_2($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -152,16 +150,16 @@
         $status_linah = getBookStatusFromTable_2($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_2($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -172,16 +170,16 @@
         $status_linah = getBookStatusFromTable_2($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_2($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -192,16 +190,16 @@
         $status_linah = getBookStatusFromTable_2($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_2($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -212,16 +210,16 @@
         $status_linah = getBookStatusFromTable_2($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_2($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -232,19 +230,19 @@
         $status_linah = getBookStatusFromTable_3($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_3($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
-            return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
-            // If any table has the status "Booked," return "Booked"
-            return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
-            // If any table has the status "Booked," return "Booked"
-            return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
-            // If any table has the status "Booked," return "Booked"
-            return 'Booked';
-        }
+       // Check if all statuses are "Borrow"
+       if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
+        return 'Borrow';
+    } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
+        // If any table has the status "Booked," return "Booked"
+        return 'Not Available';
+    }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
+        // If any table has the status "Booked," return "Booked"
+        return 'Not Available';
+    }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
+        // If any table has the status "Booked," return "Booked"
+        return 'Booked';
+    }
     }
     function getBookStatus_12($conn, $bookId) {
         // Similar changes for the second table
@@ -252,16 +250,16 @@
         $status_linah = getBookStatusFromTable_3($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_3($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -273,15 +271,15 @@
         $status_derrick = getBookStatusFromTable_3($conn, $bookId, 'derrick_db');
     
          // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -292,16 +290,16 @@
         $status_linah = getBookStatusFromTable_3($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_3($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -312,16 +310,16 @@
         $status_linah = getBookStatusFromTable_3($conn, $bookId, 'linah_db');
         $status_derrick = getBookStatusFromTable_3($conn, $bookId, 'derrick_db');
     
-         // Check if all statuses are "Borrow"
-        if ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        // Check if all statuses are "Borrow"
+        if ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             return 'Borrow';
-        } elseif ($status_kheri === 'Borrow' && $status_linah === 'Booked' && $status_derrick === 'Borrow') {
+        } elseif ($status_linah === 'Borrow' && $status_kheri === 'Booked' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Borrow' && $status_linah === 'Borrow' && $status_derrick === 'Booked') {
+        }elseif ($status_linah === 'Borrow' && $status_kheri === 'Borrow' && $status_derrick === 'Booked') {
             // If any table has the status "Booked," return "Booked"
             return 'Not Available';
-        }elseif ($status_kheri === 'Booked' && $status_linah === 'Borrow' && $status_derrick === 'Borrow') {
+        }elseif ($status_linah === 'Booked' && $status_kheri === 'Borrow' && $status_derrick === 'Borrow') {
             // If any table has the status "Booked," return "Booked"
             return 'Booked';
         }
@@ -377,7 +375,7 @@
     </header>
 
     <main>
-        <h3 class="User">Welcome Back Kheri</h3>
+        <h3 class="User">Welcome Back Linah</h3>
         <h2>PHYSICS BOOKS</h2>
         <div class="content-container">
             <div class="box1">
@@ -562,7 +560,7 @@
                         }
                     }
                 };
-                xhttp.open("POST", "physics_status.php", true);
+                xhttp.open("POST", "physics_status_2.php", true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("bookId=" + bookId);
             } else {
@@ -591,7 +589,7 @@
                         }
                     }
                 };
-                xhttp.open("POST", "engineering_status.php", true);
+                xhttp.open("POST", "engineering_status_2.php", true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("bookId=" + bookId);
             } else {
@@ -620,7 +618,7 @@
                         }
                     }
                 };
-                xhttp.open("POST", "mathematics_status.php", true);
+                xhttp.open("POST", "mathematics_status_2.php", true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("bookId=" + bookId);
             } else {
@@ -648,9 +646,9 @@
         setInterval(reloadContent, 5000);
     </script>
 
-    <?php
-        $conn->close();
-    ?>
+    <!-- <?php
+        // $conn->close();
+    ?> -->
 
 
 </body>

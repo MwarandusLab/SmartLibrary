@@ -1,5 +1,5 @@
 <?php
-require_once('kheri.php');
+require_once('linah.php');
 // Assuming you have a database connection established
 $servername = "localhost";
 $username = "root";
@@ -18,11 +18,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bookId = $_POST["bookId"];
 
     // Check the current status
-    $currentStatus = getBookStatusFromTable_3($conn, $bookId, 'kheri_db');
+    $currentStatus = getBookStatusFromTable($conn, $bookId, 'linah_db');
 
     // If the current status is "Borrow," update it to "Booked"
     if ($currentStatus === 'Borrow') {
-        $updateQuery = "UPDATE kheri_db SET mathematics_status = 'Booked' WHERE mathematics_books = '$bookId'";
+        $updateQuery = "UPDATE linah_db SET physics_status = 'Booked' WHERE physics_books = '$bookId'";
         if ($conn->query($updateQuery) === TRUE) {
             echo "Status updated successfully";
         } else {

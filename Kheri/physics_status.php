@@ -1,5 +1,5 @@
 <?php
- require_once('test.php');
+require_once('kheri.php');
 // Assuming you have a database connection established
 $servername = "localhost";
 $username = "root";
